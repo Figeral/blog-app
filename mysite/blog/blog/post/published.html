@@ -1,0 +1,22 @@
+{% extends 'blog/base.html'%}
+{% block title%}Published Post {% endblock%}
+
+{% block content%}
+{% for post in post_p%}
+<h1>
+    <a href="{% url 'blog:post_detail' post.id %}">
+        {{ post.title}}
+    </a>
+</h1>
+<P>
+     Published {{post.publish}} by {{post.author}}
+</P>
+{{post.body|truncatewords:30|linebreaks}}
+{%endfor%}
+  <br>
+  <br>
+<div class="back-to-all">
+    <a href="{%url 'blog:post_list' %}">Back to all </a>
+</div>
+{% include '../pagination.html' with page=post_p%}
+{%endblock%}

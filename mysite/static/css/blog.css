@@ -1,0 +1,16 @@
+body{
+    margin: 0;
+    padding: 0;
+    font-family: "MD Monospace",sans-serif,open-sans;
+    background-color:white;
+    display: flex;
+    flex-direction: row-reverse;
+    background-color: #cdd;
+    height: 120vh;
+}
+.sidebar{
+    width: 20%;
+}
+.content{
+    margin: 0 4rem;
+}

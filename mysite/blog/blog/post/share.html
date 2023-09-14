@@ -1,0 +1,20 @@
+{%extends 'blog/base.html'%}
+{% block title%} share a post{% endblock%}
+{%block content%}
+{% if sent %}
+<h1>E-mail send successfully</h1>
+<p>
+    "{{post.title}}" was send successfully to {{cd.to}} #or a form.clean_data.to is you didn't want to create the "cd" context 
+</p>
+{%else%}
+<h1>
+    share "{{post.title}}" by e-mail
+</h1>
+<form action="" method="post" class="form">
+  {{form.as_p}}
+  {% csrf_token %}
+  <input type="submit" value="send e-mail">
+</form>
+{%endif%}
+{%endblock%}
+

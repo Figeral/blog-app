@@ -1,0 +1,14 @@
+{
+    "sqltools.connections": [
+        {
+            "previewLimit": 100,
+            "server": "localhost",
+            "port": 5432,
+            "driver": "PostgreSQL",
+            "database": "blog",
+            "username": "fitzgerard",
+            "name": "connection_to_django_project",
+            "password": ""
+        }
+    ]
+}

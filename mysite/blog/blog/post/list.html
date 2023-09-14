@@ -1,0 +1,32 @@
+{%extends "blog/base.html" %}
+{% block title %} All Post {% endblock %}
+
+{% block content%}
+ <h1>Daily News</h1>
+ {% for post in posts %}
+ <h2>
+    <a href="{{ post.get_absolute_url}}" class="url">
+      <!-- the % url blog:post_detail% can still be used, the use one is a canonical url -->
+        {{post.title}}
+    </a>
+ </h2>
+ <p class="date">
+    Published {{post.publish}} by {{ post.author}}
+ </p>
+ {{post.body |truncatewords:35|linebreaks}}
+ {%endfor%}
+   <br>
+   <br>
+ <div class="published">
+   <a href="{% url 'blog:postpublish' %}">  <!-- this url has i meant to match a " postpublish view" url from the pattern in the blog/url.py file 
+      the other to  displayed the the published queryset   from the view.py -->
+      see all publish
+   </a>
+ </div>
+ <div>
+   {% include "../pagination.html" with page=posts%}  <!--the  posts(context) is assigned to the page for the semantic ie. for the UX-->
+ </div>
+ {%endblock%}
+
+
+ 

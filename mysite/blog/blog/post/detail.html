@@ -1,0 +1,26 @@
+{% extends "blog/base.html" %}
+
+{% block title %}{{ posted.title }}{% endblock %}
+{% block content %}
+<h1>{{ posted.title }}</h1>
+<p class="date">
+Published {{ posted.publish }} by {{ posted.author }}  
+</p>
+{{ posted.body|linebreaks }}
+
+<div class="post_num">
+    post : {{posted.id}}
+</div>
+
+<div class="return">
+    <a href= "{% url 'blog:post_list'%}"> return</a>
+</div>
+<p>
+    <a href="{% url 'blog:post_share' posted.id %}">
+        share this post
+    </a>
+</p>
+{% endblock %}
+ <!-- the page is the page detail of each page. it displays the post's body content with the 
+ "posted.body" in an separate page from the post list .
+    and has a link to return to the list main file -->
